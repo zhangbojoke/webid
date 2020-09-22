@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{$site['site_name']}</title>
+<link type="text/css" rel="stylesheet" href="{STATIC_URL}index/style.css">
+<script type="text/javascript" src="{STATIC_URL}index/jquery-1.js"></script>
+<script type="text/javascript" src="{STATIC_URL}index/banner.js"></script>
+</head>
+<style>
+   .hide {
+      width: 500px;
+      height: 600px;
+      display: none;
+      top: 200px;
+      margin-left: -250px;
+      left: 50%;
+      position: fixed;
+      z-index: 10;
+   }
+</style>
+<body>
+{m:include "index","header"}
+
+<div class="branknav">
+  您当前位置：主页》公司简介
+</div>
+
+<div class="mainWrap">
+  <div class="mainLeft">
+     <div class="clear"></div>
+     <div class="mainLeftCon">
+      <img src="{STATIC_URL}index/image.jpg" class="hide" onclick="hide()" alt="">
+      {m:lists field="title,thumb,updatetime,url,color,flag" thumb="1" catid="$catid" limit="5" page="page"}
+      {loop $data $v}
+        <div class="news">
+           <div class="newsL"><a href="javascript:;"><img onclick="show()" src="{$v['thumb']}"></a></div>
+               <div class="newsR">
+                  <a href="javascript:;" onclick="show()"><p>{$v['title']}<br>(5元/篇)</p></a>
+               </div>
+        </div>
+      {/loop}
+     </div>
+     <div class="clear"></div>
+     <div class="pagebox">
+         {$pages}
+     </div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="height20"></div>
+{m:include "index","footer"}
+
+
+</body></html>

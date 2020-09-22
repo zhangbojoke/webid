@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{$site['site_name']}</title>
+<link type="text/css" rel="stylesheet" href="{STATIC_URL}index/style.css">
+<script type="text/javascript" src="{STATIC_URL}index/jquery-1.js"></script>
+<script type="text/javascript" src="{STATIC_URL}index/banner.js"></script>
+</head>
+
+<body>
+{m:include "index","header"}
+
+<div class="branknav">
+  您当前位置：{get_location($catid)}
+</div>
+
+<div class="mainWrap">
+     <div class="clear"></div>
+     <div class="mainLeftCon">
+        <div class="cons">
+            {$content}
+        </div>
+     </div>
+  </div>
+{m:include "index","footer"}
+
+
+</body></html>
